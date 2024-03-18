@@ -15,12 +15,12 @@ const Form = () => {
         "C++": 54
     };
 
-    const executeCode = async (decodedLanguage, decodedStdin, decodedSourceCode) => {
+    const executeCode = async () => {
         const options = {
             method: 'POST',
             url: 'https://judge0-ce.p.rapidapi.com/submissions',
             params: {
-                base64_encoded: 'true',
+                base64_encoded: 'false',
                 fields: '*'
             },
             headers: {
@@ -30,9 +30,9 @@ const Form = () => {
                 'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com'
             },
             data: {
-                language_id: btoa(langId[language]),
-                source_code: btoa(sourceCode),
-                stdin: btoa(stdin)
+                language_id: langId[language],
+                source_code: sourceCode,
+                stdin: stdin
             }
         };
 
@@ -48,7 +48,7 @@ const Form = () => {
             method: 'GET',
             url: `https://judge0-ce.p.rapidapi.com/submissions/${token}`,
             params: {
-                base64_encoded: 'true',
+                base64_encoded: 'false',
                 fields: '*'
             },
             headers: {
@@ -59,6 +59,7 @@ const Form = () => {
 
         try {
             const response = await axios.request(options);
+            // console.log(response);
             return response.data.stdout;
         } catch (error) {
             console.log(error.message);
@@ -79,14 +80,14 @@ const Form = () => {
                     sourceCode,
                     output: stdout,
                 };
-                // await axios.post(url, data)
-                //     .then((response) => {
-                //         // successfully sent
-                //     })
-                //     .catch((error) => {
-                //         // failed
-                //     })
-                console.log(data);
+                await axios.post(url, data)
+                    .then((response) => {
+                        // successfully sent
+                        console.log("Data Successfully saved");
+                    })
+                    .catch((error) => {
+                        console.log(error.status + ": " + error.message);
+                    })
             }
         }
         catch (error) {
