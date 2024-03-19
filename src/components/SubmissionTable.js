@@ -9,7 +9,9 @@ const SubmissionTable = () => {
     const fetchData = async () => {
         await axios.get(url)
             .then((response) => {
-                setSubmissions(response.data);
+                let sub = response.data;
+                sub.reverse();
+                setSubmissions(sub);
             })
             .catch((error) => {
                 console.log(error.message);
