@@ -86,20 +86,18 @@ const Form = () => {
                     .then((response) => {
                         // successfully sent
                         console.log("Data Successfully saved");
-                        prompt("Code Successfully Executed");
-
+                        alert("Code Successfully Executed");
+                        navigate('/table')
                     })
                     .catch((error) => {
                         console.log(error.status + ": " + error.message);
-                        prompt("Try Again")
-                        navigate('/table')
+                        alert("Try Again")
                     })
             }
         }
         catch (error) {
             console.log(error.status + ": " + error.message);
-            prompt("Try Again");
-
+            alert("Try Again");
         }
     };
 
