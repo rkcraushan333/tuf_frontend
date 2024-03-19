@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Form.css';
 import axios from 'axios';
 
@@ -14,6 +15,7 @@ const Form = () => {
         "Javascript": 63,
         "C++": 54
     };
+    const navigate = useNavigate();
 
     const executeCode = async () => {
         const options = {
@@ -84,14 +86,20 @@ const Form = () => {
                     .then((response) => {
                         // successfully sent
                         console.log("Data Successfully saved");
+                        prompt("Code Successfully Executed");
+
                     })
                     .catch((error) => {
                         console.log(error.status + ": " + error.message);
+                        prompt("Try Again")
+                        navigate('/table')
                     })
             }
         }
         catch (error) {
-            console.log(error.message);
+            console.log(error.status + ": " + error.message);
+            prompt("Try Again");
+
         }
     };
 
