@@ -32,7 +32,7 @@ const Form = () => {
             data: {
                 language_id: langId[language],
                 source_code: sourceCode,
-                stdin: stdin || null
+                stdin: stdin === '' ? 'null' : stdin
             }
         };
 
