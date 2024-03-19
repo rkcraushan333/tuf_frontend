@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './SubTable.css'
 
 const SubmissionTable = () => {
     const [submissions, setSubmissions] = useState([]);
@@ -23,7 +24,7 @@ const SubmissionTable = () => {
     return (
         <>
             <h1>Submission History</h1>
-            <table>
+            <table className="submission-table">
                 <thead>
                     <tr>
                         <th>Username</th>
@@ -37,12 +38,12 @@ const SubmissionTable = () => {
                 <tbody>
                     {submissions.map((submission, index) => (
                         <tr key={index}>
-                            <td>{submission.username}</td>
-                            <td>{submission.language}</td>
-                            <td>{submission.stdin}</td>
-                            <td>{submission.timestamp}</td>
-                            <td>{submission.sourceCode.substring(0, 100)}</td>
-                            <td>{submission.output}</td>
+                            <td><input type="text" value={submission.username} readOnly /></td>
+                            <td><input type="text" value={submission.language} readOnly /></td>
+                            <td><input type="text" value={submission.stdin} readOnly /></td>
+                            <td><input type="text" value={submission.timestamp} readOnly /></td>
+                            <td><textarea rows="4" cols="50" readOnly value={submission.sourceCode.substring(0, 100)} /></td>
+                            <td><input type="text" value={submission.output} readOnly /></td>
                         </tr>
                     ))}
                 </tbody>
@@ -50,5 +51,4 @@ const SubmissionTable = () => {
         </>
     );
 };
-
 export default SubmissionTable;
