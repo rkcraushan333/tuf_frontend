@@ -9,6 +9,7 @@ const Form = () => {
     let [language, setLanguage] = useState('');
     let [stdin, setStdin] = useState('');
     let [sourceCode, setSourceCode] = useState('');
+    let [output, setOutput] = useState('');
     const langId = {
         "Python": 70,
         "Java": 62,
@@ -17,12 +18,16 @@ const Form = () => {
     };
     const navigate = useNavigate();
 
+    const stringToUtf8 = (params) => {
+        return btoa(params)
+    }
+
     const executeCode = async () => {
         const options = {
             method: 'POST',
             url: 'https://judge0-ce.p.rapidapi.com/submissions',
             params: {
-                base64_encoded: 'false',
+                base64_encoded: 'true',
                 fields: '*'
             },
             headers: {
@@ -33,8 +38,8 @@ const Form = () => {
             },
             data: {
                 language_id: langId[language],
-                source_code: sourceCode,
-                stdin: stdin
+                source_code: stringToUtf8(sourceCode),
+                stdin: stringToUtf8(stdin)
             }
         };
 
@@ -51,7 +56,7 @@ const Form = () => {
             method: 'GET',
             url: `https://judge0-ce.p.rapidapi.com/submissions/${token}`,
             params: {
-                base64_encoded: 'false',
+                base64_encoded: 'true',
                 fields: '*'
             },
             headers: {
@@ -75,15 +80,16 @@ const Form = () => {
             const token = await executeCode();
             // console.log("is this null" + token)
             if (token) {
-                const stdout = await getOutput(token);
+                let stdout = await getOutput(token);
+                setOutput(atob(stdout));
                 const data = {
                     username,
                     language,
                     stdin,
                     sourceCode,
-                    output: stdout,
+                    output
                 };
-                console.log(stdout);
+                // console.log(stdout);
                 await axios.post(url, data)
                     .then((response) => {
                         // successfully sent
