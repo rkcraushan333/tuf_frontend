@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { RAPIDAPIHOST, RAPIDAPIKEY } from '../../config/index.js'
 import './Form.css';
 import axios from 'axios';
 
@@ -33,8 +34,8 @@ const Form = () => {
             headers: {
                 'content-type': 'application/json',
                 'Content-Type': 'application/json',
-                'X-RapidAPI-Key': '8d40fe1887mshc1fc9f0f651a385p13154bjsn0b62777a859a',
-                'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com'
+                'X-RapidAPI-Key': RAPIDAPIKEY,
+                'X-RapidAPI-Host': RAPIDAPIHOST
             },
             data: {
                 language_id: langId[language],
@@ -60,8 +61,8 @@ const Form = () => {
                 fields: '*'
             },
             headers: {
-                'X-RapidAPI-Key': '8d40fe1887mshc1fc9f0f651a385p13154bjsn0b62777a859a',
-                'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com'
+                'X-RapidAPI-Key': RAPIDAPIKEY,
+                'X-RapidAPI-Host': RAPIDAPIHOST
             }
         };
 
