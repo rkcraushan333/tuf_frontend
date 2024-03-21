@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { RAPIDAPIHOST, RAPIDAPIKEY } from '../../config/index.js'
+import { RAPIDAPIHOST, RAPIDAPIKEY } from '../config/index.js'
 import './Form.css';
 import axios from 'axios';
 
