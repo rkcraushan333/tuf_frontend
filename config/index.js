@@ -3,6 +3,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const {
-    RAPIDAPIHOSTRAPIDAPIHOST,
+    RAPIDAPIKEY,
     RAPIDAPIHOST
 } = process.env;
