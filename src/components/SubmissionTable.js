@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './SubTable.css'
 
@@ -21,8 +22,11 @@ const SubmissionTable = () => {
     useEffect(() => {
         fetchData();
     }, []);
+    const navigate = useNavigate();
+
     return (
         <>
+            <button className="go-back-button" onClick={() => navigate('/')}>Submit Code</button>
             <h1>Submission History</h1>
             <table className="submission-table">
                 <thead>

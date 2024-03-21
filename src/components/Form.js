@@ -42,7 +42,7 @@ const Form = () => {
             const response = await axios.request(options);
             return response.data.token;
         } catch (error) {
-            alert("try again")
+            alert("Fill the data correctly")
             // console.log(error.message);
         }
     }
@@ -64,7 +64,7 @@ const Form = () => {
             const response = await axios.request(options);
             return response.data.stdout;
         } catch (error) {
-            alert("try again")
+            alert("Fill the data correctly")
         }
     }
     // Function to handle form submission
@@ -73,7 +73,7 @@ const Form = () => {
         e.preventDefault();
         try {
             const token = await executeCode();
-            console.log("is this null" + stdin)
+            // console.log("is this null" + stdin)
             if (token) {
                 const stdout = await getOutput(token);
                 const data = {
@@ -92,7 +92,7 @@ const Form = () => {
                     })
                     .catch((error) => {
                         // console.log(error.status + ": " + error.message);
-                        alert("Try Again")
+                        alert("Fill the data correctly")
                     })
             }
         }
@@ -153,7 +153,11 @@ const Form = () => {
                         className="source-code"
                     />
                 </div>
-                <button type="submit">Submit</button>
+                <div className="button-container">
+                    <button type="submit">Submit</button>
+                    <div className="button-space"></div>
+                    <button onClick={() => navigate('/table')}>Submissions</button>
+                </div>
             </form>
         </div>
     );

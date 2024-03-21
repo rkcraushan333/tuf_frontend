@@ -52,3 +52,11 @@ button:hover {
 .heading{
     text-align: center;
 }
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-space {
+    width: 10px; /* Adjust as needed */
+}
