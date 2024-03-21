@@ -42,7 +42,8 @@ const Form = () => {
             const response = await axios.request(options);
             return response.data.token;
         } catch (error) {
-            console.log(error.message);
+            alert("try again")
+            // console.log(error.message);
         }
     }
     const getOutput = async (token) => {
@@ -61,10 +62,9 @@ const Form = () => {
 
         try {
             const response = await axios.request(options);
-            // console.log(response);
             return response.data.stdout;
         } catch (error) {
-            console.log(error.message);
+            alert("try again")
         }
     }
     // Function to handle form submission
@@ -86,18 +86,18 @@ const Form = () => {
                 await axios.post(url, data)
                     .then((response) => {
                         // successfully sent
-                        console.log("Data Successfully saved");
+                        // console.log("Data Successfully saved");
                         alert("Code Successfully Executed");
                         navigate('/table')
                     })
                     .catch((error) => {
-                        console.log(error.status + ": " + error.message);
+                        // console.log(error.status + ": " + error.message);
                         alert("Try Again")
                     })
             }
         }
         catch (error) {
-            console.log(error.status + ": " + error.message);
+            // console.log(error.status + ": " + error.message);
             alert("Try Again");
         }
     };
