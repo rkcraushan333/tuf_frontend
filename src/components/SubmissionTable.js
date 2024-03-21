@@ -42,12 +42,12 @@ const SubmissionTable = () => {
                 <tbody>
                     {submissions.map((submission, index) => (
                         <tr key={index}>
-                            <td><input type="text" value={submission.username} readOnly /></td>
-                            <td><input type="text" value={submission.language} readOnly /></td>
-                            <td><input type="text" value={submission.stdin} readOnly /></td>
-                            <td><input type="text" value={submission.timestamp} readOnly /></td>
-                            <td><textarea rows="4" cols="50" readOnly value={submission.sourceCode.substring(0, 100)} /></td>
-                            <td><input type="text" value={submission.output} readOnly /></td>
+                            <td><input type="text" value={submission.username.split('\n').join(' ')} readOnly /></td>
+                            <td><input type="text" value={submission.language.split('\n').join(' ')} readOnly /></td>
+                            <td><input type="text" value={submission.stdin.split('\n').join(' ')} readOnly /></td>
+                            <td><input type="text" value={submission.timestamp.split('\n').join(' ')} readOnly /></td>
+                            <td><textarea rows="4" cols="50" readOnly value={submission.sourceCode.substring(0, 100).split('\n').join(' ')} /></td>
+                            <td><input type="text" value={submission.output.split('\n').join(' ')} readOnly /></td>
                         </tr>
                     ))}
                 </tbody>

@@ -73,7 +73,7 @@ const Form = () => {
         e.preventDefault();
         try {
             const token = await executeCode();
-            // console.log("is this null" + stdin)
+            // console.log("is this null" + token)
             if (token) {
                 const stdout = await getOutput(token);
                 const data = {
@@ -83,6 +83,7 @@ const Form = () => {
                     sourceCode,
                     output: stdout,
                 };
+                console.log(stdout);
                 await axios.post(url, data)
                     .then((response) => {
                         // successfully sent
