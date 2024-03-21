@@ -34,7 +34,7 @@ const Form = () => {
             data: {
                 language_id: langId[language],
                 source_code: sourceCode,
-                stdin: stdin === '' ? null : stdin
+                stdin: stdin
             }
         };
 
@@ -73,6 +73,7 @@ const Form = () => {
         e.preventDefault();
         try {
             const token = await executeCode();
+            console.log("is this null" + stdin)
             if (token) {
                 const stdout = await getOutput(token);
                 const data = {
