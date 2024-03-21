@@ -154,9 +154,9 @@ const Form = () => {
                     />
                 </div>
                 <div className="button-container">
-                    <button type="submit">Submit</button>
-                    <div className="button-space"></div>
                     <button onClick={() => navigate('/table')}>Submissions</button>
+                    <div className="button-space"></div>
+                    <button type="submit">Submit</button>
                 </div>
             </form>
         </div>
