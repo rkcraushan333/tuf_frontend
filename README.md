@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Frontend App README
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This frontend application provides a user-friendly interface for code submission, execution, and viewing submission history. Below is an overview of the application structure, components, and functionalities.
 
-## Available Scripts
+## Components:
 
-In the project directory, you can run:
+### 1. App.js
 
-### `npm start`
+- Entry point for the React application.
+- Sets up routing using React Router.
+- Renders the `Form` component for code submission and the `SubmissionTable` component for viewing submission history.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. Form.js
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Renders a form for users to submit their code.
+- Includes input fields for username, code language, standard input, and source code.
+- Submits code to the backend for execution and stores submission data.
 
-### `npm test`
+### 3. SubmissionTable.js
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Displays submission history in a table format.
+- Fetches submission data from the backend.
+- Users can view details of past submissions including username, code language, timestamp, and output.
 
-### `npm run build`
+## Functionality:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Code Submission**: Users input username, select code language, provide standard input, and paste source code. Code is sent to the backend for execution.
+- **Code Execution**: Submitted code is executed on the backend using an API. Users can view output once execution is completed.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Submission History**: Users can view past submissions including details such as username, code language, timestamp, and output.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started:
 
-### `npm run eject`
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Install dependencies with `npm install` or `yarn install`.
+4. Start the development server using `npm start` or `yarn start`.
+5. Access the application at `http://localhost:3000`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Dependencies:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React: JavaScript library for building user interfaces.
+- React Router: Declarative routing for React applications.
+- Axios: Promise-based HTTP client for making requests to the backend server.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Additional Notes:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- This frontend communicates with a backend server for code execution and submission data storage.
+- Ensure the backend server is running and accessible to handle API requests from the frontend.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to explore the codebase and customize it according to your requirements. If you have any questions or issues, please refer to the documentation or contact the project maintainers.
